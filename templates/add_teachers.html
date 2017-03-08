@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/add_teachers.html" method="POST">
+        {% csrf_token %}
+        <p><input type="text" name="name" placeholder="姓名"></p>
+        <p>
+            {% for cla in cla_list %}
+{#                {{ cla.name }}<input type="checkbox" name="{{ cla.name }}" value="{{ cla.id }}">#}
+                {{ cla.name }}<input type="checkbox" name="cla_list" value="{{ cla.id }}">
+            {% endfor %}
+        </p>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

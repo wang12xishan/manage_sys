@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/edit_teachers.html?nid={{ te_obj.id}}" method="post">
+        {% csrf_token %}
+        <p><input type="text" name="name" value="{{ te_obj.name }}"></p>
+        <p>
+            {% for cla   in cla_list %}
+{#                {{ cla.id }}#}
+                {% if cla.id in l  %}
+                    {{ cla.name }}<input type="checkbox"  checked name="cla_id" value="{{ cla.id }} ">
+                {% else %}
+                    {{ cla.name }}<input type="checkbox" name="cla_id" value="{{ cla.id }}">
+                {% endif %}
+            {% endfor %}
+        </p>
+
+        <p><input type="submit"></p>
+
+    </form>
+
+
+</body>
+</html>
